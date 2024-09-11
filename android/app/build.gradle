@@ -78,8 +78,10 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.mybluetoothapp"
+
     defaultConfig {
         applicationId "com.mybluetoothapp"
+
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
