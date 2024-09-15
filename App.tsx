@@ -8,6 +8,7 @@ import SelectedInformation from './screens/SelectedInformation';
 import NewCrop from './screens/NewCrop';
 import SeeCrop from './components/SeeCrop';
 import SelectedCrop from './components/SelectedCrop';
+import BluetoothExample from './screens/BluetoothExample';
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
         />
         <Stack.Screen name="SeeCrop" component={SeeCrop} />
         <Stack.Screen name="SelectedCrop" component={SelectedCrop} />
+        <Stack.Screen name="BluetoothExample" component={BluetoothExample} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

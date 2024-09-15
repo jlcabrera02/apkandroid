@@ -20,8 +20,13 @@ const Home = ({navigation}) => {
             <Text>Cultivos</Text>
           </View>
           <View>
-            <View style={styles.optionsBtn}>
-            </View>
+          <TouchableOpacity style={styles.optionsBtn} onPress={()=>navigation.navigate('BluetoothExample')} >
+                <MaterialCommunityIcons
+                  name="tree-outline"
+                  size={32}
+                  color="white"
+                />
+              </TouchableOpacity>
             <Text>Sensor</Text>
           </View>
         </View>
