@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native'; // Importa useNavigation
 
-import data from '../cultivos.json'
+import data from '../cultivos.json';
+import BackIcon from './BackIcons';
 
 const SelectedCrop = () => {
   const [cultivos, setCultivos] = useState([]);
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (data && data.cultivos) {
@@ -30,6 +31,8 @@ const SelectedCrop = () => {
 
   return (
     <ScrollView>
+      <BackIcon />
+
       <View style={styles.container}>
         <View style={styles.indexBox}>
           <View style={styles.cropContainer}>
