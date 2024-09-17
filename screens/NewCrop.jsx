@@ -3,13 +3,13 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import {useNavigation} from '@react-navigation/native';
 import BackIcon from '../components/BackIcons';
-import data from '../cultivos.json'
+import data from '../cultivos.json';
 const NewCrop = () => {
   const [cultivos, setCultivos] = useState([]);
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
-  const navigation = useNavigation(); // Obtén el objeto de navegación
+  const navigation = useNavigation();
 
   useEffect(() => {
     if (data && data.cultivos) {
@@ -29,7 +29,7 @@ const NewCrop = () => {
       <BackIcon />
       <View style={styles.indexBox}>
         <Text>Hola esta es la pantalla para nuevos cultivos</Text>
-{/* 
+        {/* 
         {sensor.map(datos => (
           <View style={styles.sensor} key={datos.id}>
             <Text>{datos.nombre}</Text>
@@ -37,7 +37,6 @@ const NewCrop = () => {
           </View>
         ))} */}
 
-        <View></View>
       </View>
       <Dropdown
         style={[styles.dropdown, isFocus && {borderColor: 'white'}]}

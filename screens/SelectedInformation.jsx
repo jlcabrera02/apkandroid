@@ -7,18 +7,18 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native'; // Importa useNavigation y useRoute para manejar la navegación y la ruta
+import {useNavigation, useRoute} from '@react-navigation/native';
 import BackIcon from '../components/BackIcons';
 import data from '../cultivos.json';
 
 const SelectedInformation = () => {
   const [cropData, setCropData] = useState(null);
-  const route = useRoute(); // Hook para acceder a los parámetros de la ruta
-  const navigation = useNavigation(); // Hook para la navegación
+  const route = useRoute();
+  const navigation = useNavigation();
   console.log();
 
   useEffect(() => {
-    // Accede a los parámetros de la ruta
+    // obtengo el dato seleccionado para cultivos
     const {selectedInformation} = route.params || {};
     if (selectedInformation) {
       try {

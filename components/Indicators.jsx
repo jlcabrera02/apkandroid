@@ -1,29 +1,48 @@
 import {View, Text, StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
-
+import React, {useContext, useEffect, useState} from 'react';
+import {BluetoothContext} from '../contexts/BluetoothContext';
 const Indicators = () => {
-  const [status, setStatus] = useState(null);
+  const {receivedMessage} = useContext(BluetoothContext);
+
+  const [humidity, setHumidity] = useState(null);
+  const [temperature, setTemperature] = useState(null);
 
   useEffect(() => {
     const changeColor = () => {
-      if (randomNumber <= 10) {
-        setStatus('red');
-      } else if (randomNumber >= 10 && randomNumber <= 20) {
-        setStatus('yellow');
-      } else {
-        setStatus('green');
+      if (humedad <= 30) {
+        setHumidity('red'); // Baja humedad
+      } else if (humedad >= 31 && humedad <= 60) {
+        setHumidity('green'); // Humedad óptima
+      } else if (humedad > 60) {
+        setHumidity('red'); // Alta humedad
       }
     };
+    const colorTemperature = () => {
+      if (randomNumber <= 30) {
+        setTemperature('red'); // Baja temperatura
+      } else if (randomNumber >= 33 && humedad <= 36) {
+        setTemperature('yellow'); // Temperatura óptima
+      } else if (randomNumber > 36) {
+        setTemperature('red'); // Alta Temperatura
+      }
+    };
+
+    colorTemperature();
     changeColor();
   });
 
-  const randomNumber = 10;
+  const humedad = receivedMessage;
+  useEffect(() => {
+    if (receivedMessage) {
+      console.log('esto funciona', receivedMessage);
+    }
+  }, [receivedMessage]);
 
-  /* const [randomNumber, setRandomNumber] = useState(0);
+  const [randomNumber, setRandomNumber] = useState(0);
 
   const generateRandomNumber = () => {
-    const min = 0;
-    const max = 30;
+    const min = 33;
+    const max = 36;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   useEffect(() => {
@@ -33,21 +52,21 @@ const Indicators = () => {
 
     return () => clearInterval(intervalId);
   }, []);
-*/
+
   return (
     <View style={styles.container}>
       <View style={styles.box}>
         <Text style={styles.textIndicator}>Temperatura</Text>
         <View style={styles.containerColor}>
-          <View style={[styles.testColor, {backgroundColor: status}]} />
-          <Text style={styles.indicator}>C°</Text>
+          <View style={[styles.testColor, {backgroundColor: temperature}]} />
+          <Text style={styles.indicator}>{randomNumber} C°</Text>
         </View>
       </View>
       <View style={styles.box}>
         <Text style={styles.textIndicator}>Humedad</Text>
         <View style={styles.containerColor}>
-          <View style={[styles.testColor, {backgroundColor: status}]} />
-          <Text style={styles.indicator}>{randomNumber} %</Text>
+          <View style={[styles.testColor, {backgroundColor: humidity}]} />
+          <Text style={styles.indicator}>{receivedMessage} %</Text>
         </View>
       </View>
     </View>

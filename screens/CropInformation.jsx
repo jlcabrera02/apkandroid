@@ -1,14 +1,13 @@
-import BackIcon from "../components/BackIcons";
-import { ThemedText } from "@/components/ThemedText";
-import { View, Text, StyleSheet } from "react-native";
-import SelectedCrop from "../components/SelectedCrop";
+import BackIcon from '../components/BackIcons';
+import {View, Text, StyleSheet} from 'react-native';
+import SelectedCrop from '../components/SelectedCrop';
 const CropInformation = () => {
   return (
     <View style={styles.container}>
       <View style={styles.indexBox}>
-        <BackIcon/>
+        <BackIcon />
         <Text style={styles.textInformation}>Informacion adicional</Text>
-        <SelectedCrop/>
+        <SelectedCrop />
       </View>
     </View>
   );
@@ -22,9 +21,9 @@ const styles = StyleSheet.create({
     margin: 35,
   },
   textInformation: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
 

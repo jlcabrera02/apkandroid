@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Indicators from '../components/Indicators';
 import SeeCrop from '../components/SeeCrop';
 import Svg, {Path} from 'react-native-svg';

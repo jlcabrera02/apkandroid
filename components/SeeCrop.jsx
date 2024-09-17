@@ -4,7 +4,7 @@ import { useRoute } from "@react-navigation/native";
 
 const SeeCrop = () => {
   const route = useRoute();
-  const { selectedData } = route.params || {}; // Obtén los parámetros pasados desde la navegación
+  const { selectedData } = route.params || {}; 
   const [cropData, setCropData] = useState(null);
 
   useEffect(() => {

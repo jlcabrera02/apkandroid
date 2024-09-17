@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native'; // Importa useNavigation
+import {useNavigation} from '@react-navigation/native'; 
 
 import data from '../cultivos.json';
 import BackIcon from './BackIcons';

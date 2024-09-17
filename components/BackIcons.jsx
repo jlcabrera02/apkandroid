@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 const BackIcon = () => {
   const navigation = useNavigation();
   const handlePress = () => {
-    navigation.goBack(); // Navega hacia la pantalla anterior
+    navigation.goBack();
   };
 
   return (
@@ -31,6 +31,6 @@ export default BackIcon;
 const styles = StyleSheet.create({
   container: {
     marginTop: 16,
-    padding: 10, 
+    padding: 10,
   },
 });
