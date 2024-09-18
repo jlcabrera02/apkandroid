@@ -9,6 +9,9 @@ export const BluetoothProvider = ({ children }) => {
   const [devices, setDevices] = useState([]);
   const [connectedDevice, setConnectedDevice] = useState(null);
   const [receivedMessage, setReceivedMessage] = useState('');
+  const [temperature, setTemperature] = useState(null);
+  const [humidity, setHumidity] = useState(null);
+  const [soilMoisture, setSoilMoisture] = useState(null);
 
   useEffect(() => {
     const requestPermissions = async () => {
@@ -80,6 +83,12 @@ export const BluetoothProvider = ({ children }) => {
             message = message.trim();
             if (message !== '' && message !== ' ') {
               setReceivedMessage(message);
+
+              const [temp, hum, soilMoist] = message.split(',').map(Number);
+
+              setTemperature(temp);
+              setHumidity(hum);
+              setSoilMoisture(soilMoist);
             }
           }
         } catch (error) {
@@ -101,6 +110,9 @@ export const BluetoothProvider = ({ children }) => {
         connectedDevice,
         connectToDevice,
         receivedMessage,
+        temperature,
+        humidity,
+        soilMoisture,
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import BackIcon from '../components/BackIcons';
 import Indicators from '../components/Indicators';
 import {BluetoothContext} from '../contexts/BluetoothContext';
 const BluetoothExample = () => {
-  const {devices, connectedDevice, connectToDevice, receivedMessage} =
+  const {devices, connectedDevice, connectToDevice} =
     useContext(BluetoothContext);
 
   return (
@@ -35,7 +35,7 @@ const BluetoothExample = () => {
           </View>
         )}
 
-        <Indicators receivedMessage={receivedMessage} />
+        <Indicators  />
       </View>
     </View>
   );
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     padding: 20,
     height: 200,
     width: 400,
-    backgroundColor: '#F5F5DC',
   },
   btnVincular: {
     justifyContent: 'center',

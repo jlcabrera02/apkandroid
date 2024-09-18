@@ -2,43 +2,42 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useContext, useEffect, useState} from 'react';
 import {BluetoothContext} from '../contexts/BluetoothContext';
 const Indicators = () => {
-  const {receivedMessage} = useContext(BluetoothContext);
+  const {soilMoisture, temperature} = useContext(BluetoothContext);
+console.log(soilMoisture, temperature);
 
-  const [humidity, setHumidity] = useState(null);
-  const [temperature, setTemperature] = useState(null);
+  const [changeHumidity, setHumidity] = useState(null);
+  const [changeTemperature, setTemperature] = useState(null);
 
   useEffect(() => {
-    const changeColor = () => {
-      if (humedad <= 30) {
+    const colorHumidity = () => {
+      if (soilMoisture <= 30) {
         setHumidity('red'); // Baja humedad
-      } else if (humedad >= 31 && humedad <= 60) {
+      } else if (soilMoisture >= 31 && soilMoisture <= 60) {
         setHumidity('green'); // Humedad óptima
-      } else if (humedad > 60) {
+      } else if (soilMoisture > 60) {
         setHumidity('red'); // Alta humedad
       }
     };
     const colorTemperature = () => {
-      if (randomNumber <= 30) {
+      if (temperature <= 30) {
         setTemperature('red'); // Baja temperatura
-      } else if (randomNumber >= 33 && humedad <= 36) {
+      } else if (temperature >= 33 && temperature <= 36) {
         setTemperature('yellow'); // Temperatura óptima
-      } else if (randomNumber > 36) {
+      } else if (temperature > 36) {
         setTemperature('red'); // Alta Temperatura
       }
     };
 
     colorTemperature();
-    changeColor();
+    colorHumidity();
   });
 
-  const humedad = receivedMessage;
   useEffect(() => {
-    if (receivedMessage) {
-      console.log('esto funciona', receivedMessage);
+    if (soilMoisture) {
     }
-  }, [receivedMessage]);
+  }, [soilMoisture]);
 
-  const [randomNumber, setRandomNumber] = useState(0);
+  /*const [randomNumber, setRandomNumber] = useState(0);
 
   const generateRandomNumber = () => {
     const min = 33;
@@ -49,24 +48,23 @@ const Indicators = () => {
     const intervalId = setInterval(() => {
       setRandomNumber(generateRandomNumber());
     }, 10000);
-
     return () => clearInterval(intervalId);
   }, []);
-
+*/
   return (
     <View style={styles.container}>
       <View style={styles.box}>
         <Text style={styles.textIndicator}>Temperatura</Text>
         <View style={styles.containerColor}>
-          <View style={[styles.testColor, {backgroundColor: temperature}]} />
-          <Text style={styles.indicator}>{randomNumber} C°</Text>
+          <View style={[styles.testColor, {backgroundColor: changeTemperature}]} />
+          <Text style={styles.indicator}>{temperature} C°</Text>
         </View>
       </View>
       <View style={styles.box}>
         <Text style={styles.textIndicator}>Humedad</Text>
         <View style={styles.containerColor}>
-          <View style={[styles.testColor, {backgroundColor: humidity}]} />
-          <Text style={styles.indicator}>{receivedMessage} %</Text>
+          <View style={[styles.testColor, {backgroundColor: changeHumidity}]} />
+          <Text style={styles.indicator}>{soilMoisture} %</Text>
         </View>
       </View>
     </View>
