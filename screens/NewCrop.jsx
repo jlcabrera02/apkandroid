@@ -28,7 +28,6 @@ const NewCrop = () => {
     <View style={styles.container}>
       <BackIcon />
       <View style={styles.indexBox}>
-        <Text>Hola esta es la pantalla para nuevos cultivos</Text>
         {/* 
         {sensor.map(datos => (
           <View style={styles.sensor} key={datos.id}>
@@ -36,7 +35,6 @@ const NewCrop = () => {
             <Text>{datos.tipo}</Text>
           </View>
         ))} */}
-
       </View>
       <Dropdown
         style={[styles.dropdown, isFocus && {borderColor: 'white'}]}
@@ -58,12 +56,14 @@ const NewCrop = () => {
           setIsFocus(false);
         }}
       />
-      <TouchableOpacity
-        style={styles.newBtn}
-        onPress={handleNavigate}
-        disabled={!value}>
-        <Text style={styles.newText}>Guardar</Text>
-      </TouchableOpacity>
+      <View style={styles.btnNewContainer}>
+        <TouchableOpacity
+          style={styles.newBtn}
+          onPress={handleNavigate}
+          disabled={!value}>
+          <Text style={styles.newText}>Guardar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -91,6 +91,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 8,
     backgroundColor: '#1E1E1E',
+  },
+  btnNewContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 510,
   },
   icon: {
     marginRight: 5,

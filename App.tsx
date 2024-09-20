@@ -11,6 +11,7 @@ import SelectedCrop from './components/SelectedCrop';
 import BluetoothExample from './screens/BluetoothExample';
 import {BluetoothProvider} from './contexts/BluetoothContext';
 import Welcome from './screens/Welcome';
+import CropInformation from './screens/CropInformation';
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
               fontWeight: 'bold',
             },
           }}>
-          <Stack.Screen name="welcome" component={Welcome}/>
+          <Stack.Screen name="welcome" component={Welcome} />
           <Stack.Screen name="/" component={Home} />
 
           <Stack.Screen name="NewCrop" component={NewCrop} />
@@ -39,6 +40,7 @@ function App() {
           />
           <Stack.Screen name="SeeCrop" component={SeeCrop} />
           <Stack.Screen name="SelectedCrop" component={SelectedCrop} />
+          <Stack.Screen name="CropInformation" component={CropInformation} />
           <Stack.Screen name="BluetoothExample" component={BluetoothExample} />
         </Stack.Navigator>
       </NavigationContainer>

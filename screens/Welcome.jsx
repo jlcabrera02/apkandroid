@@ -15,11 +15,8 @@ const Welcome = () => {
   return (
     <View style={styles.container}>
       <View style={styles.indexBox}>
-        <Text style={styles.textWelcome}>AGROTECH</Text>
-        <Image
-          source={{
-            uri: 'https://st.depositphotos.com/1169502/2025/v/950/depositphotos_20257115-stock-illustration-abstract-eco-green-plant-with.jpg',
-          }}
+        <Text style={styles.textWelcome}>Bienvenido!</Text>
+        <Image source={require('../assets/imgs/logopng.png')}
           style={styles.image}
         />
       </View>
@@ -39,13 +36,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textWelcome: {
-    fontSize: 30,
+    fontSize:60,
     marginBottom: 30,
     fontWeight: 'bold',
+    color:'black'
   },
   image: {
+    marginTop:100,
     width: 300,
     height: 300,
-    borderRadius: 300,
   },
 });

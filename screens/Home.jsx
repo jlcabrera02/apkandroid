@@ -12,7 +12,7 @@ const Home = ({navigation}) => {
           <View>
             <TouchableOpacity
               style={styles.optionsBtn}
-              onPress={() => navigation.navigate('SelectedCrop')}>
+              onPress={() => navigation.navigate('CropInformation')}>
               <Svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"
@@ -45,29 +45,33 @@ const Home = ({navigation}) => {
           </View>
         </View>
 
-        {/* COMPONENTE DE LA INFORMACION DEL CULTIVO */}
-        <SeeCrop />
-        {/* COMPONENTE DE LA INFORMACION DEL CULTIVO */}
+        <View style={styles.indicatorsContainer} >
+          {/* COMPONENTE DE LA INFORMACION DEL CULTIVO */}
+          <SeeCrop />
+          {/* COMPONENTE DE LA INFORMACION DEL CULTIVO */}
 
-        {/* COMPONENTE DE INDICADORES DE TEMPERATURA Y HUMEDAD */}
-        <Indicators />
-        {/* COMPONENTE DE INDICADORES DE TEMPERATURA Y HUMEDAD */}
-
+          {/* COMPONENTE DE INDICADORES DE TEMPERATURA Y HUMEDAD */}
+          <Indicators />
+          {/* COMPONENTE DE INDICADORES DE TEMPERATURA Y HUMEDAD */}
         <TouchableOpacity
           style={styles.newBtn}
           onPress={() => navigation.navigate('NewCrop')}>
           <Text style={styles.newText}>Nuevo Cultivo</Text>
         </TouchableOpacity>
+        </View>
+
       </View>
     </View>
   );
 };
 const styles = StyleSheet.create({
+ 
   container: {
     flex: 1,
   },
   indexBox: {
     marginTop: 55,
+
     margin: 35,
   },
   optionsContainer: {
@@ -81,6 +85,10 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 100,
+  },
+  indicatorsContainer:{
+    alignItems:'center',
+    justifyContent:'center'
   },
   newBtn: {
     alignItems: 'center',

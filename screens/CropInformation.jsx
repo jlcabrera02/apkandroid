@@ -4,9 +4,10 @@ import SelectedCrop from '../components/SelectedCrop';
 const CropInformation = () => {
   return (
     <View style={styles.container}>
+      <BackIcon />
+      <Text style={styles.textInformation}>Informacion adicional</Text>
+
       <View style={styles.indexBox}>
-        <BackIcon />
-        <Text style={styles.textInformation}>Informacion adicional</Text>
         <SelectedCrop />
       </View>
     </View>

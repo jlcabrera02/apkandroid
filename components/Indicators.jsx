@@ -2,8 +2,8 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useContext, useEffect, useState} from 'react';
 import {BluetoothContext} from '../contexts/BluetoothContext';
 const Indicators = () => {
-  const {soilMoisture, temperature} = useContext(BluetoothContext);
-console.log(soilMoisture, temperature);
+  const {soilMoisture, temperature, humidity} = useContext(BluetoothContext);
+  console.log(soilMoisture, temperature, humidity);
 
   const [changeHumidity, setHumidity] = useState(null);
   const [changeTemperature, setTemperature] = useState(null);

@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native'; 
+import {useNavigation} from '@react-navigation/native';
 
 import data from '../cultivos.json';
 import BackIcon from './BackIcons';
@@ -31,13 +31,12 @@ const SelectedCrop = () => {
 
   return (
     <ScrollView>
-      <BackIcon />
-
       <View style={styles.container}>
         <View style={styles.indexBox}>
           <View style={styles.cropContainer}>
             {cultivos.map(crop => (
               <TouchableOpacity
+                style={styles.btnOp}
                 key={crop.id}
                 onPress={() => handleNavigate(crop.id)}>
                 <View style={styles.cropOption}>
@@ -46,7 +45,9 @@ const SelectedCrop = () => {
                     style={styles.img}
                     resizeMode="cover"
                   />
-                  <Text style={styles.cropTitle}>{crop.label}</Text>
+                  <View>
+                    <Text style={styles.cropTitle}>{crop.label}</Text>
+                  </View>
                 </View>
               </TouchableOpacity>
             ))}
@@ -60,16 +61,19 @@ const SelectedCrop = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   indexBox: {
-    marginTop: 64,
     width: '100%',
   },
   cropContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnOp: {
+    alignItems: 'center',
+    paddingTop:10,
     justifyContent: 'center',
   },
   cropOption: {
@@ -90,8 +94,10 @@ const styles = StyleSheet.create({
   },
   cropTitle: {
     fontSize: 20,
+    paddingTop:20,
+
     fontWeight: 'bold',
-    padding: 10,
+    textAlign: 'center',
     marginRight: 'auto',
   },
 });
