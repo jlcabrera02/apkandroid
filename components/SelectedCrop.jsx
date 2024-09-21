@@ -10,7 +10,6 @@ import {
 import {useNavigation} from '@react-navigation/native';
 
 import data from '../cultivos.json';
-import BackIcon from './BackIcons';
 
 const SelectedCrop = () => {
   const [cultivos, setCultivos] = useState([]);
@@ -77,8 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cropOption: {
-    marginBottom: 32,
-    height: 146,
+    marginBottom: 40,
+    height: 170,
     flexBasis: '45%',
     padding: 24,
     borderColor: '#000',
@@ -87,10 +86,9 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   img: {
-    marginTop: 20,
+    marginTop: 10,
     width: 106,
     height: 106,
-    borderRadius: 100,
   },
   cropTitle: {
     fontSize: 20,

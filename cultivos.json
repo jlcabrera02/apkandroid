@@ -5,93 +5,123 @@
       "label": "Maiz",
       "imagen": "https://i.imgur.com/znhMliq_d.webp?maxwidth=760&fidelity=grand",
       "temperatura": "",
-      "hmin":60,
+      "hmin": 60,
       "hmax": 70,
       "tmin": 15,
-      "tmax":30,
+      "tmax": 30,
       "tips": [1, 2, 3, 4]
     },
     {
       "id": 2,
       "label": "Frijol",
-      "imagen": "https://img.freepik.com/vector-gratis/estilo-dibujos-animados-arbol-haba-aislado-sobre-fondo-blanco_1308-46624.jpg?t=st=1717804162~exp=1717807762~hmac=4f7bc1147659f2743192bb4e633c41014c5f6c8d0abc8b7a94970c6373f2079c&w=360",
-      "tips": [1, 3],
-      "hmin":50,
+      "imagen": "https://i.imgur.com/eUD51Xl_d.webp?maxwidth=760&fidelity=grand",
+      "tips": [5, 6, 7, 8],
+      "hmin": 50,
       "hmax": 60,
       "tmin": 18,
-      "tmax":30
+      "tmax": 30
     },
     {
       "id": 3,
       "label": "Chile",
-      "imagen": "https://i.pinimg.com/564x/02/ad/de/02addedb0b5b57dbf1bf914b09b5de3f.jpg",
-      "tips": [1, 3],
-      "hmin":50,
+      "imagen": "https://i.imgur.com/xZOgcd2.png",
+      "tips": [9, 10, 11, 12],
+      "hmin": 50,
       "hmax": 70,
       "tmin": 20,
-      "tmax":30
+      "tmax": 30
     },
     {
       "id": 4,
       "label": "Chihua",
-      "imagen": "https://i.pinimg.com/564x/02/ad/de/02addedb0b5b57dbf1bf914b09b5de3f.jpg",
-      "hmin":60,
+      "imagen": "https://i.imgur.com/14Oyfm0_d.webp?maxwidth=760&fidelity=grand",
+      "hmin": 60,
       "hmax": 80,
       "tmin": 18,
-      "tmax":30,
-      "tips": [1]
+      "tmax": 30,
+      "tips": [13, 14, 15, 16]
     }
   ],
   "tips": [
     {
       "id": 1,
-      "title": "caballo",
-      "tip": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+      "title": "Variedad adecuada",
+      "tip": "Elige variedades de maíz resistentes al clima cálido y húmedo de Tabasco, como el maíz criollo o híbridos tropicales, que toleren bien la alta humedad y las lluvias frecuentes de la región."
     },
     {
       "id": 2,
-      "title": "perro",
-      "tip": "Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor."
+      "title": "Riego controlado",
+      "tip": "Aunque el clima es húmedo, asegúrate de regar durante la floración y el llenado del grano. Evita encharcar, ya que el exceso de agua puede dañar las raíces."
     },
     {
       "id": 3,
-      "title": "pez",
-      "tip": "Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+      "title": "Control de plagas",
+      "tip": "Controla plagas como el gusano cogollero, común en la región, con insecticidas naturales y prácticas de rotación de cultivos para mantener el suelo sano.."
     },
     {
       "id": 4,
-      "title": "gato",
-      "tip": "Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum."
+      "title": "Fertilización",
+      "tip": "Aplica abonos orgánicos o fertilizantes nitrogenados en las fases iniciales de crecimiento para asegurar un buen desarrollo del cultivo y mejores rendimientos."
     },
     {
       "id": 5,
-      "title": "pájaro",
-      "tip": "Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam rutrum nisi. Sed egestas, ante et vulputate volutpat."
+      "title": "Variedad adecuada",
+      "tip": "Escoge frijoles adaptados al clima húmedo de Tabasco, como el frijol rojo o el frijol carioca, que toleran bien las lluvias y altas temperaturas de la región.."
     },
     {
       "id": 6,
-      "title": "conejo",
-      "tip": "Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor."
+      "title": "Preparación del suelo",
+      "tip": "Antes de sembrar, asegúrate de que el suelo esté bien aireado y con un pH adecuado (entre 6.0 y 7.0). Un buen drenaje es esencial para prevenir la pudrición de las raíces."
     },
     {
       "id": 7,
-      "title": "hamster",
-      "tip": "Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra."
+      "title": "Rotación de cultivos",
+      "tip": "Practica la rotación de cultivos, alternando el frijol con otros como el maíz, para mejorar la salud del suelo y reducir la incidencia de plagas y enfermedades.."
     },
     {
       "id": 8,
-      "title": "tortuga",
-      "tip": "Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi."
+      "title": "Control de malezas",
+      "tip": "Mantén el área libre de malezas, especialmente durante las primeras etapas de crecimiento del frijol, ya que compiten por nutrientes y agua, afectando el rendimiento."
     },
     {
       "id": 9,
-      "title": "serpiente",
-      "tip": "Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla."
+      "title": "Variedad adecuada",
+      "tip": "Escoge variedades de chile que se adapten al clima cálido y húmedo de Tabasco, como el chile habanero o el chile jalapeño, que prosperan en condiciones tropicales.."
     },
     {
       "id": 10,
-      "title": "pez dorado",
-      "tip": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet."
+      "title": "Suelo bien drenado",
+      "tip": "Monitorea plagas como los ácaros y trips, así como enfermedades comunes como la marchitez por Fusarium. Usa insecticidas y fungicidas naturales, y alterna con cultivos para prevenir problemas.."
+    },
+    {
+      "id": 11,
+      "title": "Control de plagas",
+      "tip": "Monitorea plagas como los ácaros y trips, así como enfermedades comunes como la marchitez por Fusarium. Usa insecticidas y fungicidas naturales, y alterna con cultivos para prevenir problemas."
+    },
+    {
+      "id": 12,
+      "title": "Fertilización",
+      "tip": "Aplica fertilizantes ricos en nitrógeno al inicio y fósforo durante la floración para asegurar un buen crecimiento y producción de frutos."
+    },
+    {
+      "id": 13,
+      "title": "Variedad adecuada",
+      "tip": "La calabaza chihua se adapta bien a climas cálidos y húmedos como el de Tabasco. Asegúrate de elegir semillas de calidad y variedades locales que ya estén aclimatadas."
+    },
+    {
+      "id": 14,
+      "title": "Preparación del suelo",
+      "tip": "Asegúrate de que el suelo esté bien suelto y tenga buena retención de humedad. Enriquecer el terreno con abono orgánico, como compost, ayudará a mejorar su estructura y fertilidad."
+    },
+    {
+      "id": 15,
+      "title": "Riego controlado",
+      "tip": "Mantén un régimen de riego regular, especialmente durante el crecimiento inicial y la floración. Evita el exceso de agua, que puede causar enfermedades en las raíces, pero asegúrate de que las plantas no se sequen."
+    },
+    {
+      "id": 16,
+      "title": "Control de plagas",
+      "tip": "Realiza inspecciones periódicas para detectar plagas como los pulgones o la mosca blanca. Implementa medidas de control cultural, como la eliminación de malezas y el uso de trampas adhesivas."
     }
   ]
 }

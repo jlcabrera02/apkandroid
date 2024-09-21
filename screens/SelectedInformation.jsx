@@ -60,7 +60,7 @@ const SelectedInformation = () => {
           )}
         </View>
 
-        <ScrollView>
+        <ScrollView style={styles.ScrollView}>
           {getTipsDetails().map((tip, index) => (
             <View key={index} style={styles.tipContainer}>
               <Text style={styles.tipTitle}>
@@ -70,7 +70,9 @@ const SelectedInformation = () => {
             </View>
           ))}
 
-          <Text>Condiciones climaticas optimas</Text>
+          <Text style={styles.textClimatic}>
+            Condiciones climaticas optimas
+          </Text>
           <View style={styles.indicadorContainer}>
             <View style={styles.dataIndicador}>
               <View style={styles.dataH}>
@@ -126,6 +128,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 10,
   },
+  ScrollView: {
+    marginBottom:100,
+  },
   labelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -152,6 +157,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom:100,
+  },
+  textClimatic: {
+    paddingTop: 30,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   dataIndicador: {
     width: 150,
