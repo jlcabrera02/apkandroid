@@ -13,9 +13,8 @@ export const BluetoothProvider = ({children}) => {
   const [temperature, setTemperature] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [soilMoisture, setSoilMoisture] = useState(null);
-  const [bluetoothEnabled, setBluetoothEnabled] = useState(false); // Estado para Bluetooth
+  const [bluetoothEnabled, setBluetoothEnabled] = useState(false); 
 
-  // Función para habilitar Bluetooth y listar dispositivos emparejados
   
   const checkBluetoothEnabled = async () => {
     try {

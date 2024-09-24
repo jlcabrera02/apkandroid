@@ -1,14 +1,23 @@
-import React, {useContext} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator} from 'react-native';
 import BackIcon from '../components/BackIcons';
-import Indicators from '../components/Indicators';
 import {BluetoothContext} from '../contexts/BluetoothContext';
 import Svg, {Path} from 'react-native-svg';
 import ToggleButton from '../components/ToggleButton';
 
 const BluetoothExample = () => {
-  const {devices, connectedDevice, connectToDevice} =
-    useContext(BluetoothContext);
+  const {devices, connectedDevice, connectToDevice} = useContext(BluetoothContext);
+  const [connecting, setConnecting] = useState(false);
+
+  const handleConnect = async (item) => {
+    setConnecting(true);
+    try {
+      await connectToDevice(item);
+    } catch (error) {
+    } finally {
+      setConnecting(false);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -20,11 +29,21 @@ const BluetoothExample = () => {
       <View style={styles.connectedContainer}>
         <Text style={styles.textConnected}>
           CONECTADO A:{' '}
-          {connectedDevice && (
+          {connectedDevice ? (
             <Text style={styles.textConnectedName}>{connectedDevice.name}</Text>
+          ) : (
+            'NINGUNO'
           )}
         </Text>
       </View>
+
+      {connecting && (
+        <View style={styles.connectingContainer}>
+          <ActivityIndicator size="large" color="green" />
+          <Text style={styles.connectingText}>Conectando...</Text>
+        </View>
+      )}
+
       <View style={styles.indexBox}>
         <View style={styles.dpVinculo}>
           <FlatList
@@ -33,8 +52,10 @@ const BluetoothExample = () => {
             renderItem={({item}) => (
               <View style={styles.devicesContainer}>
                 <TouchableOpacity
-                  onPress={() => connectToDevice(item)}
-                  style={styles.btnVincular}>
+                  onPress={() => handleConnect(item)}
+                  style={styles.btnVincular}
+                  disabled={connecting}  
+                >
                   <Svg viewBox="0 0 320 512" width={30} height={30}>
                     <Path d="M196.5 260l92.6-103.3L143.1 0v206.3l-86.1-86.1-31.4 31.4 108.1 108.4L25.6 368.4l31.4 31.4 86.1-86.1L145.8 512l148.6-148.6-97.9-103.3zm40.9-103l-50 50-.3-100.3 50.3 50.3zM187.4 313l50 50-50.3 50.3 .3-100.3z" />
                   </Svg>
@@ -48,8 +69,6 @@ const BluetoothExample = () => {
             )}
           />
         </View>
-
-        {/* <Indicators /> */}
       </View>
     </View>
   );
@@ -72,7 +91,6 @@ const styles = StyleSheet.create({
   },
   connectedContainer: {
     paddingTop: 55,
-
     padding: 16,
   },
   textConnected: {
@@ -82,7 +100,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontWeight: 'normal',
   },
-
   dpVinculo: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -103,9 +120,19 @@ const styles = StyleSheet.create({
     width: 330,
     height: 70,
   },
-
   textName: {
     paddingLeft: 20,
+  },
+  connectingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 20,
+  },
+  connectingText: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'green',
   },
 });
 

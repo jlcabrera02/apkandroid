@@ -37,26 +37,14 @@ const Indicators = () => {
     }
   }, [soilMoisture]);
 
-  /*const [randomNumber, setRandomNumber] = useState(0);
-
-  const generateRandomNumber = () => {
-    const min = 33;
-    const max = 36;
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setRandomNumber(generateRandomNumber());
-    }, 10000);
-    return () => clearInterval(intervalId);
-  }, []);
-*/
   return (
     <View style={styles.container}>
       <View style={styles.box}>
         <Text style={styles.textIndicator}>Temperatura</Text>
         <View style={styles.containerColor}>
-          <View style={[styles.testColor, {backgroundColor: changeTemperature}]} />
+          <View
+            style={[styles.testColor, {backgroundColor: changeTemperature}]}
+          />
           <Text style={styles.indicator}>{temperature} C°</Text>
         </View>
       </View>
@@ -82,7 +70,7 @@ const styles = StyleSheet.create({
     height: 97,
     //    borderWidth: 1,
     marginBottom: 30,
-    margin: 10,
+    justifyContent: 'center',
   },
   textIndicator: {
     fontSize: 18,

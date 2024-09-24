@@ -21,12 +21,13 @@ const NewCrop = () => {
     const selectedData = cultivos.find(item => item.id === value);
     navigation.navigate('/', {
       selectedData: JSON.stringify(selectedData),
-    }); // Navega a la pantalla deseada
+    }); // Navega a la pantalla
   };
 
   return (
     <View style={styles.container}>
       <BackIcon />
+
       <View style={styles.indexBox}>
         {/* 
         {sensor.map(datos => (
@@ -71,13 +72,11 @@ const NewCrop = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 35,
   },
   indexBox: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 55,
-    margin: 35,
   },
   sensor: {
     marginTop: 40,
@@ -91,6 +90,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 8,
     backgroundColor: '#1E1E1E',
+    margin: 35,
   },
   btnNewContainer: {
     justifyContent: 'center',

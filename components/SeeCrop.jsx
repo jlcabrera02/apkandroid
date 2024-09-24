@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   img: {
-    width: 300,
+    width: 320,
     height: 350,
   },
   textCultivo: {
