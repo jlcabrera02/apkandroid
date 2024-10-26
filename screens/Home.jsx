@@ -30,9 +30,10 @@ const Home = ({navigation}) => {
         setDataFetch(res.data.response);
         setErrorFetch(false);
       })
-      .catch(() => {
+      .catch(error => {
         setDataFetch([]);
         setErrorFetch(true);
+        console.log(error);
       })
       .finally(() => setPending(false));
   }, []);
@@ -53,8 +54,7 @@ const Home = ({navigation}) => {
           <TouchableHighlight
             underlayColor={'rgba(165,165,165,1)'}
             style={styles.buttonTry}
-            onPress={getDataFetch}
-            disabled>
+            onPress={getDataFetch}>
             <Text>Reintentar</Text>
           </TouchableHighlight>
         </View>
