@@ -1,41 +1,44 @@
 import React, {createContext, useCallback, useEffect, useState} from 'react';
 import useWebSocket from 'react-native-use-websocket';
 import useSound from 'react-native-use-sound';
-import {urlSocket} from '../axios/Axios.js';
-// import alarmSound from '../assets/sounds/alarm.mp3';
+import {urlMain, urlSocket} from '../axios/Axios.js';
+import BackgroundTimer from 'react-native-background-timer';
 export const WS_Context = createContext(null);
 
 const Websocket = props => {
   const [play, _pause, stop, data] = useSound(
-    'http://192.168.137.113:4000/static/assets/sounds/alarm.mp3',
+    `${urlMain}/static/assets/sounds/alarm.mp3`,
     {numberOfLoops: -1, timeRate: 500, volume: 1},
   );
   const [stateAlarm, setStateAlarm] = useState([]);
 
-  const {sendJsonMessage, lastJsonMessage} = useWebSocket(urlSocket, {
-    onOpen: () => {
-      //Callback que se ejecuta si la conexion es exitosa
-      console.log(
-        'Conexión con sockets establecida en modulo administrativo de botones de panico',
-      );
+  const {sendJsonMessage, lastJsonMessage, getWebSocket} = useWebSocket(
+    urlSocket,
+    {
+      onOpen: () => {
+        //Callback que se ejecuta si la conexion es exitosa
+        console.log(
+          'Conexión con sockets establecida en modulo administrativo de botones de panico',
+        );
+      },
+      onError: err => {
+        //Callback que se ejecuta si la conexion es erronea
+        console.log(`Conexion perdida ${err}`);
+      },
+      share: true,
+      filter: e => {
+        //Callback que solo filtrara los sockets con los tipos de eventos que necesitemos, en este caso ("panicBtnOn", "getPanicInfo")
+        const type = JSON.parse(e.data).type;
+        return (
+          type === 'panicBtnOn' ||
+          type === 'getPanicInfo' ||
+          type === 'panicBtnOff'
+        );
+      },
+      retryOnError: true,
+      shouldReconnect: () => true,
     },
-    onError: err => {
-      //Callback que se ejecuta si la conexion es erronea
-      console.log(`Conexion perdida ${err}`);
-    },
-    share: true,
-    filter: e => {
-      //Callback que solo filtrara los sockets con los tipos de eventos que necesitemos, en este caso ("panicBtnOn", "getPanicInfo")
-      const type = JSON.parse(e.data).type;
-      return (
-        type === 'panicBtnOn' ||
-        type === 'getPanicInfo' ||
-        type === 'panicBtnOff'
-      );
-    },
-    retryOnError: true,
-    shouldReconnect: () => true,
-  });
+  );
 
   const getPanicInfo = useCallback(() => {
     //funcion para obtener datos de la BD
@@ -65,7 +68,7 @@ const Websocket = props => {
   }, [lastJsonMessage, getPanicInfo]);
 
   //UseEffect para obtener el estado actual de las islas, solo cargara una vez.
-  useEffect(() => getPanicInfo(), [getPanicInfo]);
+  useEffect(() => getPanicInfo, [getPanicInfo]);
 
   useEffect(() => {
     if (stateAlarm.length > 0) {
@@ -79,6 +82,35 @@ const Websocket = props => {
     }
   }, [stateAlarm, data, play, stop]);
 
+  //apagar alarma
+  const apagarAlarma = useCallback(
+    idIsla => {
+      sendJsonMessage({
+        type: 'panicBtnOff',
+        idIsla,
+      });
+    },
+    [sendJsonMessage],
+  );
+
+  // Mantener la conexión WebSocket en segundo plano
+  useEffect(() => {
+    const intervalId = BackgroundTimer.setInterval(() => {
+      const socket = getWebSocket();
+
+      // Verificar si la conexión está cerrada y reintentar si es necesario
+      if (socket && socket.readyState !== WebSocket.OPEN) {
+        console.log('Reintentando conexión WebSocket');
+        getWebSocket(); // Forzar reconexión
+      }
+    }, 15000); // Revisa cada 15 segundos
+
+    // Limpiar el temporizador al desmontar el componente
+    return () => {
+      BackgroundTimer.clearInterval(intervalId);
+    };
+  }, [getWebSocket]);
+
   return (
     <WS_Context.Provider
       value={{
@@ -89,6 +121,7 @@ const Websocket = props => {
         data,
         stateAlarm,
         setStateAlarm,
+        apagarAlarma,
       }}>
       {props.children}
     </WS_Context.Provider>

@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Icon from '../assets/imgs/Es';
-import FadeAnimation from '../hooks/FadeAnimation';
+import {FadeAnimationEs} from '../hooks/FadeAnimation';
 import {WS_Context} from '../providers/Websocket';
 import Axios, {urlMain} from '../axios/Axios';
 
@@ -31,7 +31,7 @@ const Home = ({navigation}) => {
         setErrorFetch(false);
       })
       .catch(() => {
-        setDataFetch(true);
+        setDataFetch([]);
         setErrorFetch(true);
       })
       .finally(() => setPending(false));
@@ -62,11 +62,10 @@ const Home = ({navigation}) => {
       {!pending ? (
         <View style={styles.estaciones}>
           {dataFetch.map(el => (
-            <FadeAnimation
+            <FadeAnimationEs
               key={el.idestacion_servicio}
               idestacion={el.idestacion_servicio}
               style={styles.container_es}
-              islas={el.islas}
               stateAlarm={stateAlarm}>
               <TouchableHighlight
                 underlayColor={'rgba(165,165,165,1)'}
@@ -74,7 +73,7 @@ const Home = ({navigation}) => {
                 onPress={() => press(el.idestacion_servicio)}>
                 <Icon estacion={el.idestacion_servicio} />
               </TouchableHighlight>
-            </FadeAnimation>
+            </FadeAnimationEs>
           ))}
         </View>
       ) : (

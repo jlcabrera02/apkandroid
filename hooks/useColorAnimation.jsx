@@ -11,6 +11,7 @@ const useColorAnimation = color => {
     inputRange: [0, 1],
     outputRange: [currentColor.current, nextColor],
   });
+  console.log('gei');
 
   useEffect(() => {
     setFinished(false);
